@@ -1,17 +1,16 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/widgets/album_card.dart';
 
 class AlbumView extends StatefulWidget {
   final ImageProvider image;
 
-  const AlbumView({Key key, this.image}) : super(key: key);
+  const AlbumView({required Key key, required this.image}) : super(key: key);
   @override
   _AlbumViewState createState() => _AlbumViewState();
 }
 
 class _AlbumViewState extends State<AlbumView> {
-  ScrollController scrollController;
+  late ScrollController scrollController;
   double imageSize = 0;
   double initialSize = 240;
   double containerHeight = 500;
@@ -116,7 +115,7 @@ class _AlbumViewState extends State<AlbumView> {
                               children: [
                                 Text(
                                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                                 SizedBox(height: 8),
                                 Row(
@@ -133,7 +132,7 @@ class _AlbumViewState extends State<AlbumView> {
                                 SizedBox(height: 8),
                                 Text(
                                   "1,888,132 likes 5h 3m",
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                                 SizedBox(height: 16),
                                 Stack(
@@ -166,7 +165,7 @@ class _AlbumViewState extends State<AlbumView> {
                         SizedBox(height: 32),
                         Text(
                           "You might also like",
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -266,7 +265,7 @@ class _AlbumViewState extends State<AlbumView> {
                         opacity: showTopBar ? 1 : 0,
                         child: Text(
                           "Ophelia",
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),
                       Positioned(

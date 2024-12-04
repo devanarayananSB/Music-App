@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:spotify_clone/navigations/tabbar.dart';
+import 'package:spotify_clone/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
@@ -22,17 +28,25 @@ class _MyAppState extends State<MyApp> {
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: Colors.white10,
           type: BottomNavigationBarType.fixed,
-          selectedLabelStyle: TextStyle(
-            fontSize: 12,
-          ),
-          unselectedLabelStyle: TextStyle(
-            fontSize: 12,
-          ),
+          selectedLabelStyle: TextStyle(fontSize: 12),
+          unselectedLabelStyle: TextStyle(fontSize: 12),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white38,
         ),
       ),
-      home: Tabbar(),
+      home: 
+      StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+          } else if (snapshot.hasData) {
+            return Tabbar(); // User is signed in
+          } else {
+            return SplashScreen(); // User is not signed in
+          }
+        },
+      ),
     );
   }
 }

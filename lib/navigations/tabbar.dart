@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:spotify_clone/views/home.dart';
 import 'package:spotify_clone/views/library.dart';
 import 'package:spotify_clone/views/profile.dart';
-import 'package:spotify_clone/views/search.dart';
 
 class Tabbar extends StatefulWidget {
   @override
@@ -27,13 +26,10 @@ class _TabbarState extends State<Tabbar> {
             icon: Icon(Icons.home),
             label: "Home",
           ),
+         
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_outlined),
-            label: "Search",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_music),
-            label: "Your Library",
+            icon: Icon(Icons.currency_rupee_outlined),
+            label: "Premium",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -47,16 +43,13 @@ class _TabbarState extends State<Tabbar> {
             0,
             HomeView(),
           ),
+          
           renderView(
             1,
-            SearchView(),
+            PremiumAdPage(),
           ),
           renderView(
             2,
-            LibraryView(),
-          ),
-          renderView(
-            3,
             ProfileView(),
           ),
         ],

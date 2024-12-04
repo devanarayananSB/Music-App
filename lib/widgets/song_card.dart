@@ -3,11 +3,10 @@ import 'package:spotify_clone/views/album_view.dart';
 
 class SongCard extends StatelessWidget {
   final AssetImage image;
-
-  const SongCard({
-    Key key,
-    @required this.image,
-  }) : super(key: key);
+  final globalKey = GlobalKey();
+  SongCard({
+    required this.image,
+  });
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,6 +15,7 @@ class SongCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => AlbumView(
+              key: globalKey,
               image: image,
             ),
           ),
@@ -32,7 +32,7 @@ class SongCard extends StatelessWidget {
             ),
             Text(
               "Bad Bunny, Drake, Justin Bieber, Taylor Swift, Ed Sheeran",
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),

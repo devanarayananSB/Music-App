@@ -4,15 +4,16 @@ import 'package:spotify_clone/views/album_view.dart';
 class AlbumCard extends StatelessWidget {
   final ImageProvider image;
   final String label;
-  final Function onTap;
+  final Function? onTap;
   final double size;
-  const AlbumCard({
-    Key key,
-    this.image,
-    this.label,
+  AlbumCard({
+    Key? key,
+    required this.image,
+    required this.label,
     this.onTap,
     this.size = 120,
   }) : super(key: key);
+  final globalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class AlbumCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => AlbumView(
+              key: globalKey,
               image: image,
             ),
           ),
