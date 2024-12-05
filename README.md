@@ -6,8 +6,7 @@ Your ultimate destination for exploring, managing, and enjoying music effortless
 ---
 
 ## **Features**  
-- 🎵 **Music Library**: Access and manage your personal collection of songs.  
-- 🔍 **Discover Music**: Explore trending tracks and curated playlists.  
+- 🎵 **Music Library**: Access and manage your personal collection of songs.   
 - 🎧 **Seamless Playback**: Enjoy high-quality music with an intuitive player.  
 - 🌐 **Cross-Platform Support**: Works on both Android and iOS devices.  
 
